@@ -9,23 +9,23 @@
 /* Begin PBXBuildFile section */
 		13F6A0AF2B53FCE4009EA1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0AE2B53FCE4009EA1AB /* AppDelegate.swift */; };
 		13F6A0B12B53FCE4009EA1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0B02B53FCE4009EA1AB /* SceneDelegate.swift */; };
-		13F6A0B32B53FCE4009EA1AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0B22B53FCE4009EA1AB /* ViewController.swift */; };
-		13F6A0B62B53FCE4009EA1AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F6A0B42B53FCE4009EA1AB /* Main.storyboard */; };
+		13F6A0B32B53FCE4009EA1AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0B22B53FCE4009EA1AB /* MainViewController.swift */; };
 		13F6A0B92B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0B72B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld */; };
 		13F6A0BB2B53FCE6009EA1AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F6A0BA2B53FCE6009EA1AB /* Assets.xcassets */; };
 		13F6A0BE2B53FCE6009EA1AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F6A0BC2B53FCE6009EA1AB /* LaunchScreen.storyboard */; };
+		13F6A0C62B53FE93009EA1AB /* example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0C52B53FE93009EA1AB /* example.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		13F6A0AB2B53FCE4009EA1AB /* Dolce far Niente.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dolce far Niente.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F6A0AE2B53FCE4009EA1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13F6A0B02B53FCE4009EA1AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		13F6A0B22B53FCE4009EA1AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		13F6A0B52B53FCE4009EA1AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		13F6A0B22B53FCE4009EA1AB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		13F6A0B82B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dolce_far_Niente.xcdatamodel; sourceTree = "<group>"; };
 		13F6A0BA2B53FCE6009EA1AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13F6A0BD2B53FCE6009EA1AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		13F6A0BF2B53FCE6009EA1AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13F6A0C52B53FE93009EA1AB /* example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = example.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +58,64 @@
 		13F6A0AD2B53FCE4009EA1AB /* Dolce far Niente */ = {
 			isa = PBXGroup;
 			children = (
-				13F6A0AE2B53FCE4009EA1AB /* AppDelegate.swift */,
-				13F6A0B02B53FCE4009EA1AB /* SceneDelegate.swift */,
-				13F6A0B22B53FCE4009EA1AB /* ViewController.swift */,
-				13F6A0B42B53FCE4009EA1AB /* Main.storyboard */,
-				13F6A0BA2B53FCE6009EA1AB /* Assets.xcassets */,
-				13F6A0BC2B53FCE6009EA1AB /* LaunchScreen.storyboard */,
-				13F6A0BF2B53FCE6009EA1AB /* Info.plist */,
-				13F6A0B72B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld */,
+				13F6A0C52B53FE93009EA1AB /* example.swift */,
+				13F6A0CC2B53FF35009EA1AB /* CoreData */,
+				13F6A0CB2B53FECB009EA1AB /* Application */,
+				13F6A0CA2B53FEC0009EA1AB /* Resources */,
+				13F6A0C92B53FEA7009EA1AB /* Cells */,
+				13F6A0C82B53FEA2009EA1AB /* Models */,
+				13F6A0C72B53FE98009EA1AB /* Controllers */,
 			);
 			path = "Dolce far Niente";
+			sourceTree = "<group>";
+		};
+		13F6A0C72B53FE98009EA1AB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				13F6A0B22B53FCE4009EA1AB /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		13F6A0C82B53FEA2009EA1AB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		13F6A0C92B53FEA7009EA1AB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		13F6A0CA2B53FEC0009EA1AB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				13F6A0BC2B53FCE6009EA1AB /* LaunchScreen.storyboard */,
+				13F6A0BF2B53FCE6009EA1AB /* Info.plist */,
+				13F6A0BA2B53FCE6009EA1AB /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		13F6A0CB2B53FECB009EA1AB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				13F6A0AE2B53FCE4009EA1AB /* AppDelegate.swift */,
+				13F6A0B02B53FCE4009EA1AB /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		13F6A0CC2B53FF35009EA1AB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				13F6A0B72B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +178,6 @@
 			files = (
 				13F6A0BE2B53FCE6009EA1AB /* LaunchScreen.storyboard in Resources */,
 				13F6A0BB2B53FCE6009EA1AB /* Assets.xcassets in Resources */,
-				13F6A0B62B53FCE4009EA1AB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +188,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				13F6A0B32B53FCE4009EA1AB /* ViewController.swift in Sources */,
+				13F6A0C62B53FE93009EA1AB /* example.swift in Sources */,
+				13F6A0B32B53FCE4009EA1AB /* MainViewController.swift in Sources */,
 				13F6A0AF2B53FCE4009EA1AB /* AppDelegate.swift in Sources */,
 				13F6A0B92B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld in Sources */,
 				13F6A0B12B53FCE4009EA1AB /* SceneDelegate.swift in Sources */,
@@ -151,14 +199,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		13F6A0B42B53FCE4009EA1AB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13F6A0B52B53FCE4009EA1AB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		13F6A0BC2B53FCE6009EA1AB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -222,7 +262,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -279,7 +319,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -298,12 +338,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5F8NF33WRR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Dolce far Niente/Info.plist";
+				INFOPLIST_FILE = "Dolce far Niente/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +353,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "code.Dolce-far-Niente";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -326,12 +371,14 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5F8NF33WRR;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Dolce far Niente/Info.plist";
+				INFOPLIST_FILE = "Dolce far Niente/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.shopping";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,9 +386,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "code.Dolce-far-Niente";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
