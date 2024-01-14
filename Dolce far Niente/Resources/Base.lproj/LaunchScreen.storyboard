@@ -18,16 +18,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading_image" translatesAutoresizingMaskIntoConstraints="NO" id="7eb-j0-AUx">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7eb-j0-AUx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Dih-dt-Q37"/>
-                            <constraint firstItem="7eb-j0-AUx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="btf-tS-TiA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7eb-j0-AUx" secondAttribute="bottom" id="jmi-Hb-5PV"/>
-                            <constraint firstItem="7eb-j0-AUx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="udB-xH-Lax"/>
+                            <constraint firstAttribute="bottom" secondItem="7eb-j0-AUx" secondAttribute="bottom" id="3fo-qw-G7O"/>
+                            <constraint firstItem="7eb-j0-AUx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="F0c-Gr-gBd"/>
+                            <constraint firstItem="7eb-j0-AUx" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="MVx-8U-BIe"/>
+                            <constraint firstItem="7eb-j0-AUx" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NbW-cl-ClK"/>
                         </constraints>
                     </view>
                 </viewController>
