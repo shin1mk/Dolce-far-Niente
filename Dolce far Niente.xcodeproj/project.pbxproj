@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1372A8282B540FA500C26885 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1372A8272B540FA500C26885 /* SnapKit */; };
+		13D60B572B5470BB00B8915D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B562B5470BB00B8915D /* MainTabBarController.swift */; };
+		13D60B592B5471F900B8915D /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B582B5471F900B8915D /* CartViewController.swift */; };
+		13D60B5B2B54720300B8915D /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B5A2B54720300B8915D /* MoreViewController.swift */; };
+		13D60B5D2B54720E00B8915D /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B5C2B54720E00B8915D /* CourseViewController.swift */; };
 		13F6A0AF2B53FCE4009EA1AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0AE2B53FCE4009EA1AB /* AppDelegate.swift */; };
 		13F6A0B12B53FCE4009EA1AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0B02B53FCE4009EA1AB /* SceneDelegate.swift */; };
-		13F6A0B32B53FCE4009EA1AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0B22B53FCE4009EA1AB /* MainViewController.swift */; };
+		13F6A0B32B53FCE4009EA1AB /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0B22B53FCE4009EA1AB /* StoreViewController.swift */; };
 		13F6A0B92B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13F6A0B72B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld */; };
 		13F6A0BB2B53FCE6009EA1AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13F6A0BA2B53FCE6009EA1AB /* Assets.xcassets */; };
 		13F6A0BE2B53FCE6009EA1AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13F6A0BC2B53FCE6009EA1AB /* LaunchScreen.storyboard */; };
@@ -18,10 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13D60B562B5470BB00B8915D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		13D60B582B5471F900B8915D /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		13D60B5A2B54720300B8915D /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
+		13D60B5C2B54720E00B8915D /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		13F6A0AB2B53FCE4009EA1AB /* Dolce far Niente.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dolce far Niente.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13F6A0AE2B53FCE4009EA1AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		13F6A0B02B53FCE4009EA1AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		13F6A0B22B53FCE4009EA1AB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		13F6A0B22B53FCE4009EA1AB /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		13F6A0B82B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dolce_far_Niente.xcdatamodel; sourceTree = "<group>"; };
 		13F6A0BA2B53FCE6009EA1AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		13F6A0BD2B53FCE6009EA1AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,7 +82,11 @@
 		13F6A0C72B53FE98009EA1AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				13F6A0B22B53FCE4009EA1AB /* MainViewController.swift */,
+				13F6A0B22B53FCE4009EA1AB /* StoreViewController.swift */,
+				13D60B562B5470BB00B8915D /* MainTabBarController.swift */,
+				13D60B582B5471F900B8915D /* CartViewController.swift */,
+				13D60B5A2B54720300B8915D /* MoreViewController.swift */,
+				13D60B5C2B54720E00B8915D /* CourseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -197,9 +209,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				13F6A0C62B53FE93009EA1AB /* example.swift in Sources */,
-				13F6A0B32B53FCE4009EA1AB /* MainViewController.swift in Sources */,
+				13F6A0B32B53FCE4009EA1AB /* StoreViewController.swift in Sources */,
 				13F6A0AF2B53FCE4009EA1AB /* AppDelegate.swift in Sources */,
+				13D60B5D2B54720E00B8915D /* CourseViewController.swift in Sources */,
+				13D60B592B5471F900B8915D /* CartViewController.swift in Sources */,
 				13F6A0B92B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld in Sources */,
+				13D60B5B2B54720300B8915D /* MoreViewController.swift in Sources */,
+				13D60B572B5470BB00B8915D /* MainTabBarController.swift in Sources */,
 				13F6A0B12B53FCE4009EA1AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
