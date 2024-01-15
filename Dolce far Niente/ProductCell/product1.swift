@@ -17,7 +17,7 @@ final class product1_cell: UITableViewCell {
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = UIFont.SFUITextMedium(ofSize: 25)
         label.text = "titleLabel"
         label.textAlignment = .left
         label.textColor = .black
@@ -25,7 +25,7 @@ final class product1_cell: UITableViewCell {
     }()
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
+        label.font = UIFont.SFUITextMedium(ofSize: 14)
         label.text = "subtitleLabel"
         label.textAlignment = .left
         label.textColor = .black
@@ -43,28 +43,28 @@ final class product1_cell: UITableViewCell {
     
     private func setupConstraints() {
         backgroundColor = .white
-        // Добавляем изображение
+        // изображение
         addSubview(customImageView)
         customImageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
-            make.bottom.equalToSuperview().offset(-10)
-            make.leading.equalToSuperview().offset(30)
+            make.top.equalToSuperview().offset(15)
+            make.bottom.equalToSuperview().offset(-35)
+            make.leading.equalToSuperview().offset(0)
             make.width.equalTo(customImageView.snp.height)
         }
         // titleLabel справа
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(20)
-            make.leading.equalTo(customImageView.snp.trailing).offset(30)
-            make.trailing.equalToSuperview().offset(-10)
+            make.top.equalToSuperview().offset(15)
+            make.leading.equalTo(customImageView.snp.trailing).offset(15)
+            make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(25)
         }
         // subtitleLabel снизу
         addSubview(subtitleLabel)
         subtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(0)
-            make.leading.equalTo(customImageView.snp.trailing).offset(30)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalTo(customImageView.snp.trailing).offset(15)
+            make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(25)
         }
     }

@@ -12,11 +12,10 @@ final class StoreViewController: UIViewController {
     //MARK: Properties
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25)
+        label.font = UIFont.SFUITextHeavy(ofSize: 35)
         label.text = "Dolce Store"
         label.textAlignment = .left
         label.textColor = .black
-        label.numberOfLines = 0
         return label
     }()
     private let tableView: UITableView = {
@@ -30,6 +29,7 @@ final class StoreViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupTableView()
+        setupTarget()
     }
 
     private func setupUI() {
@@ -39,14 +39,14 @@ final class StoreViewController: UIViewController {
         titleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
-            make.leading.equalToSuperview().offset(10)
-            make.trailing.equalToSuperview().offset(-10)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
         }
         // table view
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)
+            make.leading.trailing.bottom.equalToSuperview().offset(15)
         }
     }
     
@@ -54,6 +54,21 @@ final class StoreViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControl
+    }
+    
+    
+    private func setupTarget() {
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+
+    }
+    
+    @objc private func refreshData() {
+
+        // Имитация задержки загрузки в течение 1 секунд
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+        }
     }
 }
 extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
@@ -63,7 +78,7 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // высота ячеек
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 210
     }
     // при нажатии ничего
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
