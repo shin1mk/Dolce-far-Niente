@@ -31,7 +31,7 @@ final class StoreViewController: UIViewController {
         setupTableView()
         setupTarget()
     }
-
+    // constraints
     private func setupUI() {
         view.backgroundColor = .white
         // title
@@ -45,23 +45,22 @@ final class StoreViewController: UIViewController {
         // table view
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(15)
-            make.leading.trailing.bottom.equalToSuperview().offset(15)
+            make.top.equalTo(titleLabel.snp.bottom).offset(0)
+            make.leading.trailing.bottom.equalToSuperview().offset(0)
         }
     }
-    
+    // setupTable
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.refreshControl = refreshControl
     }
-    
-    
+    // setupTargets
     private func setupTarget() {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
 
     }
-    
+    // функция pull to refresh
     @objc private func refreshData() {
 
         // Имитация задержки загрузки в течение 1 секунд
@@ -71,6 +70,7 @@ final class StoreViewController: UIViewController {
         }
     }
 }
+//MARK: Настройки таблицы
 extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     // количество ячеек
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -78,11 +78,11 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // высота ячеек
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 210
+        return 205
     }
-    // при нажатии ничего
+    // при нажатии на ячейки
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
     }
     // ячейки кастомные
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,10 +91,10 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
             let cellIdentifier = "product1_cell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! product1_cell
             return cell
-        case 1:
-            let cellIdentifier = "product1_cell"
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! product1_cell
-            return cell
+//        case 1:
+//            let cellIdentifier = "product1_cell"
+//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! product1_cell
+//            return cell
 //        case 2:
 //            let cellIdentifier = "artillery_systems_Cell"
 //            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! artillery_systems_Cell
@@ -153,4 +153,4 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-}
+} // end
