@@ -45,7 +45,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
         label.textAlignment = .left
         label.textColor = .black
         return label
-    }()    
+    }()
     // старая цена
     private let oldPriceLabel: UILabel = {
         let label = UILabel()
@@ -58,7 +58,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
             string: label.text ?? "",
             attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue]
         )
-
+        
         label.attributedText = attributedString
         return label
     }()
@@ -70,7 +70,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
         label.textAlignment = .left
         label.textColor = .black
         return label
-    }()    
+    }()
     // цена
     private let readyLabel: UILabel = {
         let label = UILabel()
@@ -92,7 +92,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
     // избранное
     private let favoritesButton: UIButton = {
         let button = UIButton()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .default)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .default)
         let favoritesImage = UIImage(systemName: "heart", withConfiguration: configuration)?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
         button.setImage(favoritesImage, for: .normal)
         return button
@@ -100,7 +100,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
     // корзина
     private let cartButton: UIButton = {
         let button = UIButton()
-        let configuration = UIImage.SymbolConfiguration(pointSize: 25, weight: .regular, scale: .default)
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .default)
         let cartImage = UIImage(systemName: "cart", withConfiguration: configuration)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
         button.setImage(cartImage, for: .normal)
         return button
@@ -112,7 +112,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
         setupTarget()
         setupDelegate()
     }
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupConstraints()
@@ -133,6 +133,9 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
             let imageView = UIImageView()
             imageView.image = UIImage(named: imageName)
             imageView.contentMode = .scaleAspectFill
+            imageView.layer.cornerRadius = 10 // Устанавливаем радиус закругления
+            imageView.clipsToBounds = true
+            
             scrollView.addSubview(imageView)
             
             imageView.snp.makeConstraints { make in
@@ -172,13 +175,13 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
         newPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(subtitleLabel.snp.bottom).offset(50)
             make.leading.equalTo(scrollView.snp.trailing).offset(15)
-        }   
+        }
         
         addSubview(readyLabel)
         readyLabel.snp.makeConstraints { make in
             make.top.equalTo(newPriceLabel.snp.bottom).offset(20)
             make.leading.equalTo(scrollView.snp.trailing).offset(15)
-        }   
+        }
         
         contentView.addSubview(favoritesButton)
         favoritesButton.snp.makeConstraints { make in
@@ -205,11 +208,35 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
     @objc private func favoritesButtonTapped() {
         // Add your logic for favorites button action here
         print("Favorites button tapped")
+
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .default)
+
+        if favoritesButton.currentImage == UIImage(systemName: "heart", withConfiguration: configuration)?.withTintColor(.systemRed, renderingMode: .alwaysOriginal) {
+            // Если текущая иконка - "heart", то меняем на "heart.fill"
+            let filledHeartImage = UIImage(systemName: "heart.fill", withConfiguration: configuration)?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            favoritesButton.setImage(filledHeartImage, for: .normal)
+        } else {
+            // В противном случае, возвращаем иконку к "heart"
+            let heartImage = UIImage(systemName: "heart", withConfiguration: configuration)?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            favoritesButton.setImage(heartImage, for: .normal)
+        }
     }
     // Function for Cart Button action
     @objc private func cartButtonTapped() {
         // Add your logic for cart button action here
         print("Cart button tapped")
+
+        let configuration = UIImage.SymbolConfiguration(pointSize: 30, weight: .regular, scale: .default)
+
+        if cartButton.currentImage == UIImage(systemName: "cart", withConfiguration: configuration)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal) {
+            // Если текущая иконка - "cart", то меняем на "cart.fill"
+            let filledCartImage = UIImage(systemName: "cart.fill", withConfiguration: configuration)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+            cartButton.setImage(filledCartImage, for: .normal)
+        } else {
+            // В противном случае, возвращаем иконку к "cart"
+            let cartImage = UIImage(systemName: "cart", withConfiguration: configuration)?.withTintColor(.systemBlue, renderingMode: .alwaysOriginal)
+            cartButton.setImage(cartImage, for: .normal)
+        }
     }
 } // end
 //MARK: - scroll func
