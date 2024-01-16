@@ -15,7 +15,7 @@ final class StoreViewController: UIViewController {
         label.font = UIFont.SFUITextHeavy(ofSize: 30)
         label.text = "Dolce Store"
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     // таблица
@@ -36,7 +36,7 @@ final class StoreViewController: UIViewController {
     }
     // constraints
     private func setupConstraints() {
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         // title
         view.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in

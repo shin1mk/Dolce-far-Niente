@@ -34,7 +34,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
         label.font = UIFont.SFUITextRegular(ofSize: 25)
         label.text = "title"
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     // второе название
@@ -43,7 +43,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
         label.font = UIFont.SFUITextRegular(ofSize: 25)
         label.text = "subtitle"
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     // старая цена
@@ -68,7 +68,7 @@ final class product1_cell: UITableViewCell, UIScrollViewDelegate {
         label.font = UIFont.SFUITextMedium(ofSize: 20)
         label.text = "700 ₴"
         label.textAlignment = .left
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     // цена

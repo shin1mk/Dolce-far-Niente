@@ -5,12 +5,22 @@
 //  Created by SHIN MIKHAIL on 14.01.2024.
 //
 /*
- private let scrollView: UIScrollView = {
-     let scrollView = UIScrollView()
-     scrollView.isPagingEnabled = true
-     return scrollView
- }()
  
+ import UIKit
+ import FirebaseCore
+
+ @UIApplicationMain
+ class AppDelegate: UIResponder, UIApplicationDelegate {
+
+   var window: UIWindow?
+
+   func application(_ application: UIApplication,
+     didFinishLaunchingWithOptions launchOptions:
+       [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+     FirebaseApp.configure()
+     return true
+   }
+ }
  
  
  
