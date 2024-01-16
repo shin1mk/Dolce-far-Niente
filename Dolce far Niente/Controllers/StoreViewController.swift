@@ -48,7 +48,7 @@ final class StoreViewController: UIViewController {
         // table view
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(0)
+            make.top.equalTo(titleLabel.snp.bottom).offset(5)
             make.leading.trailing.bottom.equalToSuperview().offset(0)
         }
     }

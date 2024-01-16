@@ -10,7 +10,7 @@ import SnapKit
 
 final class product1_cell: UITableViewCell, UIScrollViewDelegate {
     // array and prorperites
-    private var imageArray = ["me", "me", "me", "me"]
+    private var imageArray = ["yellow", "red", "white", "orange"]
     private var currentPageIndex = 0
     // scroll view
     private var scrollView: UIScrollView = {
