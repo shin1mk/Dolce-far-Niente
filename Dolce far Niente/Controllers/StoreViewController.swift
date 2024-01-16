@@ -12,27 +12,30 @@ final class StoreViewController: UIViewController {
     //MARK: Properties
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFUITextHeavy(ofSize: 35)
+        label.font = UIFont.SFUITextHeavy(ofSize: 30)
         label.text = "Dolce Store"
         label.textAlignment = .left
         label.textColor = .black
         return label
     }()
+    // таблица
     private let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.backgroundView = nil
         tableView.register(product1_cell.self, forCellReuseIdentifier: "product1_cell")
         return tableView
     }()
+    // обновление пулл ту рефрешь
     private let refreshControl = UIRefreshControl()
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupConstraints()
         setupTableView()
         setupTarget()
     }
     // constraints
-    private func setupUI() {
+    private func setupConstraints() {
         view.backgroundColor = .white
         // title
         view.addSubview(titleLabel)
@@ -58,11 +61,9 @@ final class StoreViewController: UIViewController {
     // setupTargets
     private func setupTarget() {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-
     }
     // функция pull to refresh
     @objc private func refreshData() {
-
         // Имитация задержки загрузки в течение 1 секунд
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.tableView.reloadData()
@@ -78,75 +79,22 @@ extension StoreViewController: UITableViewDelegate, UITableViewDataSource {
     }
     // высота ячеек
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 205
+        return 200
     }
     // при нажатии на ячейки
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("didSelect")
     }
     // ячейки кастомные
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.row {
         case 0:
             let cellIdentifier = "product1_cell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! product1_cell
             return cell
-//        case 1:
-//            let cellIdentifier = "product1_cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! product1_cell
-//            return cell
-//        case 2:
-//            let cellIdentifier = "artillery_systems_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! artillery_systems_Cell
-//            return cell
-//        case 3:
-//            let cellIdentifier = "personnel_units_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! personnel_units_Cell
-//            return cell
-//        case 4:
-//            let cellIdentifier = "tanks_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! tanks_Cell
-//            return cell
-//        case 5:
-//            let cellIdentifier = "mlrs_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! mlrs_Cell
-//            return cell
-//        case 6:
-//            let cellIdentifier = "planes_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! planes_Cell
-//            return cell
-//        case 7:
-//            let cellIdentifier = "helicopters_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! helicopters_Cell
-//            return cell
-//        case 8:
-//            let cellIdentifier = "vehicles_fuel_tanks_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! vehicles_fuel_tanks_Cell
-//            return cell
-//        case 9:
-//            let cellIdentifier = "warships_cutters_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! warships_cutters_Cell
-//            return cell
-//        case 10:
-//            let cellIdentifier = "cruise_missiles_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! cruise_missiles_Cell
-//            return cell
-//        case 11:
-//            let cellIdentifier = "uav_systems_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! uav_systems_Cell
-//            return cell
-//        case 12:
-//            let cellIdentifier = "special_military_equip_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! special_military_equip_Cell
-//            return cell
-//        case 13:
-//            let cellIdentifier = "atgm_srbm_systems_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! atgm_srbm_systems_Cell
-//            return cell
-//        case 14:
-//            let cellIdentifier = "submarines_Cell"
-//            let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! submarines_Cell
-//            return cell
+
         default:
             let cellIdentifier = "product1_cell"
             let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! product1_cell
