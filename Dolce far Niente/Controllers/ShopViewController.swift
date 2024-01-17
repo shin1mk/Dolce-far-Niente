@@ -91,6 +91,16 @@ final class ShopViewController: UIViewController {
             make.top.equalTo(collectionView.snp.bottom).offset(0)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
+            make.height.equalTo(500) // Установите подходящую высоту
+        }
+
+        let moreView = MoreView()
+        scrollView.addSubview(moreView)
+        moreView.snp.makeConstraints { make in
+            make.top.equalTo(textLabel.snp.bottom).offset(15)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.height.equalTo(1000)
             make.bottom.equalToSuperview()
         }
     }

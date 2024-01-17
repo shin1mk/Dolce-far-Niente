@@ -35,10 +35,10 @@ final class MainTabBarController: UITabBarController {
                 viewController: CourseViewController(),
                 title: "Курсы",
                 image: UIImage(systemName: "video")),
-            generateVC(
-                viewController: MoreViewController(),
-                title: "Еще",
-                image: UIImage(systemName: "person.fill.badge.plus"))
+//            generateVC(
+//                viewController: MoreViewController(),
+//                title: "Еще",
+//                image: UIImage(systemName: "person.fill.badge.plus"))
         ]
     }
     // Generate View Controllers
