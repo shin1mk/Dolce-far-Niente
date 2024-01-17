@@ -36,6 +36,7 @@ final class MainTabBarController: UITabBarController {
                 image: UIImage(systemName: "house")),
             generateVC(
                 viewController: CourseViewController(),
+//                viewController: MainViewController(),
                 title: "Курсы",
                 image: UIImage(systemName: "video")),
             generateVC(
