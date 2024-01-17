@@ -37,7 +37,14 @@ final class CartViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(storeCustomCell.self, forCellWithReuseIdentifier: "storeCustomCell")
         collectionView.showsHorizontalScrollIndicator = false // Убираем полосу прокрутки
+        collectionView.isScrollEnabled = true
+
         return collectionView
+    }()
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
     }()
     //MARK: - lifecycle
     override func viewDidLoad() {
@@ -51,6 +58,32 @@ final class CartViewController: UIViewController {
         scrollToInitialItem()
     }
     // констрейнты
+//    private func setupUI() {
+//        view.backgroundColor = .black
+//        view.addSubview(titleLabel)
+//        titleLabel.layer.zPosition = 999
+//        titleLabel.snp.makeConstraints { make in
+//            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
+//            make.leading.equalToSuperview().offset(15)
+//            make.height.equalTo(30)
+//        }
+//        
+//        view.addSubview(collectionView)
+//        collectionView.backgroundColor = .black
+//        collectionView.snp.makeConstraints { make in
+//            make.top.equalTo(titleLabel.snp.bottom).offset(15)
+//            make.leading.equalToSuperview()
+//            make.trailing.equalToSuperview()
+//            make.height.equalTo(510)
+//        }
+//        
+//        view.addSubview(textLabel)
+//        textLabel.snp.makeConstraints { make in
+//            make.top.equalTo(collectionView.snp.bottom).offset(0)
+//            make.leading.equalToSuperview().offset(15)
+//            make.trailing.equalToSuperview().offset(-15)
+//        }
+//    }
     private func setupUI() {
         view.backgroundColor = .black
         view.addSubview(titleLabel)
@@ -60,23 +93,34 @@ final class CartViewController: UIViewController {
             make.leading.equalToSuperview().offset(15)
             make.height.equalTo(30)
         }
-        
-        view.addSubview(collectionView)
-        collectionView.backgroundColor = .black
-        collectionView.snp.makeConstraints { make in
+
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(15)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.height.equalTo(510)
+            make.bottom.equalToSuperview()
         }
-        
-        view.addSubview(textLabel)
+
+        scrollView.addSubview(collectionView)
+        collectionView.backgroundColor = .black
+        collectionView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.height.equalTo(510)
+            make.width.equalTo(view) // Добавлено для горизонтальной прокрутки
+        }
+
+        scrollView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
             make.top.equalTo(collectionView.snp.bottom).offset(0)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
+            make.bottom.equalToSuperview()
         }
     }
+
     // скролл на первую картинку
     private func scrollToInitialItem() {
         let initialIndexPath = IndexPath(item: 1, section: 0)
