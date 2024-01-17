@@ -27,13 +27,13 @@ final class MainTabBarController: UITabBarController {
         
         viewControllers = [
             generateVC(
-                viewController: StoreViewController(),
-                title: "Магазин",
-                image: UIImage(systemName: "house")),
-            generateVC(
                 viewController: CartViewController(),
                 title: "Корзина",
                 image: UIImage(systemName: "cart")),
+            generateVC(
+                viewController: StoreViewController(),
+                title: "Магазин",
+                image: UIImage(systemName: "house")),
             generateVC(
                 viewController: CourseViewController(),
                 title: "Курсы",
