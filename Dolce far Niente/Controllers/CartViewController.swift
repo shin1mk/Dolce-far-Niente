@@ -1,15 +1,9 @@
 //
-//  CartViewController.swift
+//  StoreViewController.swift
 //  Dolce far Niente
 //
 //  Created by SHIN MIKHAIL on 14.01.2024.
 //
-
-//struct CustomData {
-//    var title: String
-//    var url: String
-//    var backgroundImage: UIImage
-//}
 
 import UIKit
 import SnapKit
@@ -17,6 +11,7 @@ import SnapKit
 final class CartViewController: UIViewController {
     // массив картинок
     private let images = ["red", "yellow", "orange"]
+    // свойства
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.SFUITextHeavy(ofSize: 30)
@@ -25,6 +20,7 @@ final class CartViewController: UIViewController {
         label.textColor = .white
         return label
     }()
+    // таблица
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -34,7 +30,7 @@ final class CartViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false // Убираем полосу прокрутки
         return collectionView
     }()
-    
+    //MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -53,15 +49,16 @@ final class CartViewController: UIViewController {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
             make.leading.equalToSuperview().offset(15)
+            make.height.equalTo(30)
         }
         
         view.addSubview(collectionView)
         collectionView.backgroundColor = .black
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(-150)
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.height.equalTo(510)
         }
     }
     // скролл на первую картинку
@@ -75,25 +72,32 @@ final class CartViewController: UIViewController {
         collectionView.dataSource = self
     }
 }
-
+//MARK: CollectionView settings
 extension CartViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    // размер карточки
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellWidth = view.frame.width - 70
         let cellHeight: CGFloat = 500
         return CGSize(width: cellWidth, height: cellHeight)
     }
-    
+    // количество картинок по количеству картинок в массиве
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }
-    
+    // содержимое
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeCustomCell", for: indexPath) as! storeCustomCell
         cell.imageName = self.images[indexPath.item]
         return cell
     }
+    // нажатие с присвоением индекса
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Обработка нажатия на ячейку, например, выводим номер нажатой ячейки
+        print("Selected item at index: \(indexPath.item)")
+        
+    }
 }
-
+//MARK: StoreCustomCell
 final class storeCustomCell: UICollectionViewCell {
     var imageName: String? {
         didSet {
@@ -101,19 +105,26 @@ final class storeCustomCell: UICollectionViewCell {
             backgroundImage.image = UIImage(named: imageName)
         }
     }
-    
+    // свойства
     private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 12
+        imageView.layer.cornerRadius = 15
         return imageView
     }()
-    
+    // цикл
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
+        setupUI()
+    }
+    // инит
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    // констрейнты
+    private func setupUI() {
         contentView.addSubview(backgroundImage)
         backgroundImage.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -121,9 +132,5 @@ final class storeCustomCell: UICollectionViewCell {
             make.right.equalToSuperview()
             make.bottom.equalToSuperview()
         }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
