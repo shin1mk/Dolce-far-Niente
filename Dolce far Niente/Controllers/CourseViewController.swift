@@ -10,6 +10,7 @@ import SnapKit
 
 final class CourseViewController: UIViewController {
     //MARK: Properties
+    
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
