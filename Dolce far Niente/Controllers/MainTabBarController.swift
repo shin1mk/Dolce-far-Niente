@@ -13,30 +13,26 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         generateTabBar()
-//        updateFavoritesBadge()
         tabBar.backgroundColor = UIColor.systemBackground
     }
     
     override func viewWillAppear(_ animated: Bool) {
          super.viewWillAppear(animated)
-//         updateFavoritesBadge()
      }
     //MARK: Create TabBar
     private func generateTabBar() {
-//        _ = configureFavoritesViewControllerBadge() // FavoritesViewControllerBadge
         
         viewControllers = [
             generateVC(
-                viewController: CartViewController(),
-                title: "Корзина",
-                image: UIImage(systemName: "cart")),
+                viewController: ShopViewController(),
+                title: "Shop",
+                image: UIImage(systemName: "bag")),
             generateVC(
                 viewController: StoreViewController(),
                 title: "Магазин",
                 image: UIImage(systemName: "house")),
             generateVC(
                 viewController: CourseViewController(),
-//                viewController: MainViewController(),
                 title: "Курсы",
                 image: UIImage(systemName: "video")),
             generateVC(
@@ -52,34 +48,3 @@ final class MainTabBarController: UITabBarController {
         return viewController
     }
 }
-//MARK: - Create Badge
-//extension MainTabBarController {
-//    // Favorites View Controller Badge
-//    private func configureFavoritesViewControllerBadge() -> UIViewController {
-//        let favoritesViewController = FavoritesViewController()
-//        // Получаем количество статей в избранном
-//        if let badgeCount = getFavoriteArticlesCount() {
-//            favoritesViewController.tabBarItem.badgeValue = String(badgeCount)
-//            print("Badge count \(badgeCount)")
-//        } else {
-//            favoritesViewController.tabBarItem.badgeValue = nil // Если нет статей удаляем badge
-//            print("No favorite articles")
-//        }
-//        return favoritesViewController
-//    }
-//    // get Favorite Articles Count
-//    private func getFavoriteArticlesCount() -> Int? {
-//        let favoriteArticles = CoreDataManager.shared.fetchFavoriteArticles()
-//        return favoriteArticles.count
-//    }
-//    // update Favorites Badge
-//    private func updateFavoritesBadge() {
-//        if let favoriteCount = getFavoriteArticlesCount() {
-//            if favoriteCount > 0 {
-//                tabBar.items?.last?.badgeValue = String(favoriteCount)
-//            } else {
-//                tabBar.items?.last?.badgeValue = nil
-//            }
-//        }
-//    }
-//}

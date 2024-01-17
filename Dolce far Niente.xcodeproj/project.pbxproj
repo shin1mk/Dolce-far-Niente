@@ -10,7 +10,7 @@
 		1372A8282B540FA500C26885 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1372A8272B540FA500C26885 /* SnapKit */; };
 		13B217012B54769F00D92DE5 /* product1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B217002B54769F00D92DE5 /* product1.swift */; };
 		13D60B572B5470BB00B8915D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B562B5470BB00B8915D /* MainTabBarController.swift */; };
-		13D60B592B5471F900B8915D /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B582B5471F900B8915D /* CartViewController.swift */; };
+		13D60B592B5471F900B8915D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B582B5471F900B8915D /* ShopViewController.swift */; };
 		13D60B5B2B54720300B8915D /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B5A2B54720300B8915D /* MoreViewController.swift */; };
 		13D60B5D2B54720E00B8915D /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B5C2B54720E00B8915D /* CourseViewController.swift */; };
 		13D76F082B57006E00E56A5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D76F072B57006D00E56A5D /* LoginViewController.swift */; };
@@ -60,7 +60,7 @@
 /* Begin PBXFileReference section */
 		13B217002B54769F00D92DE5 /* product1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = product1.swift; sourceTree = "<group>"; };
 		13D60B562B5470BB00B8915D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		13D60B582B5471F900B8915D /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		13D60B582B5471F900B8915D /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		13D60B5A2B54720300B8915D /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		13D60B5C2B54720E00B8915D /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		13D76F072B57006D00E56A5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -163,9 +163,9 @@
 		13F6A0C72B53FE98009EA1AB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				13F6A0B22B53FCE4009EA1AB /* StoreViewController.swift */,
 				13D60B562B5470BB00B8915D /* MainTabBarController.swift */,
-				13D60B582B5471F900B8915D /* CartViewController.swift */,
+				13D60B582B5471F900B8915D /* ShopViewController.swift */,
+				13F6A0B22B53FCE4009EA1AB /* StoreViewController.swift */,
 				13D60B5A2B54720300B8915D /* MoreViewController.swift */,
 				13D60B5C2B54720E00B8915D /* CourseViewController.swift */,
 				13D76F072B57006D00E56A5D /* LoginViewController.swift */,
@@ -344,7 +344,7 @@
 				13F6A0B32B53FCE4009EA1AB /* StoreViewController.swift in Sources */,
 				13F6A0AF2B53FCE4009EA1AB /* AppDelegate.swift in Sources */,
 				13D60B5D2B54720E00B8915D /* CourseViewController.swift in Sources */,
-				13D60B592B5471F900B8915D /* CartViewController.swift in Sources */,
+				13D60B592B5471F900B8915D /* ShopViewController.swift in Sources */,
 				13F6A0B92B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld in Sources */,
 				13D60B5B2B54720300B8915D /* MoreViewController.swift in Sources */,
 				13B217012B54769F00D92DE5 /* product1.swift in Sources */,
