@@ -115,7 +115,7 @@ import SnapKit
 
 final class StudyViewController: UIViewController {
     // добавляем вью с карточками
-    private let itemCardView = ItemCardView()
+    private let studyVideoView = StudyVideoView()
     // массив картинок
     private let images = ["me", "me", "me"]
     // свойства
@@ -216,8 +216,8 @@ final class StudyViewController: UIViewController {
             make.height.equalTo(25) // Установите подходящую высоту
         }
         
-        scrollView.addSubview(itemCardView)
-        itemCardView.snp.makeConstraints { make in
+        scrollView.addSubview(studyVideoView)
+        studyVideoView.snp.makeConstraints { make in
             make.top.equalTo(textLabel.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
@@ -246,7 +246,9 @@ extension StudyViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     // инсет для секции, добавим отступ слева только для первой секции
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return section == 0 ? UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0) : UIEdgeInsets.zero
+        let leftInset: CGFloat = section == 0 ? 15.0 : 0.0
+        let rightInset: CGFloat = (section == collectionView.numberOfSections - 1) ? 15.0 : 0.0
+        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
     }
     // количество картинок по количеству картинок в массиве
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -255,6 +257,8 @@ extension StudyViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     // содержимое
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "studyCustomCell", for: indexPath) as! studyCustomCell
+        cell.isLastCell = indexPath.item == images.count - 1
+
         cell.imageName = self.images[indexPath.item]
         return cell
     }
@@ -273,6 +277,8 @@ final class studyCustomCell: UICollectionViewCell {
             backgroundImage.image = UIImage(named: imageName)
         }
     }
+    var isLastCell: Bool = false
+
     // свойства
     private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
@@ -292,13 +298,28 @@ final class studyCustomCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     // констрейнты
+//    private func setupUI() {
+//        contentView.addSubview(backgroundImage)
+//        backgroundImage.snp.makeConstraints { make in
+//            make.top.equalToSuperview()
+//            make.left.equalToSuperview()
+//            make.right.equalToSuperview()
+//            make.bottom.equalToSuperview()
+//        }
+//    }
     private func setupUI() {
         contentView.addSubview(backgroundImage)
         backgroundImage.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalToSuperview()
-            make.right.equalToSuperview()
             make.bottom.equalToSuperview()
+            
+            // Условие для отступа справа только для последней картинки
+            if isLastCell {
+                make.right.equalToSuperview().offset(-15) // Здесь можно настроить нужный отступ
+            } else {
+                make.right.equalToSuperview()
+            }
         }
     }
 }

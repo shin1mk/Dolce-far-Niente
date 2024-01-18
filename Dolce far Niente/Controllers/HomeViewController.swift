@@ -1,5 +1,5 @@
 //
-//  CourseViewController.swift
+//  HomeViewController.swift
 //  Dolce far Niente
 //
 //  Created by SHIN MIKHAIL on 14.01.2024.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class CourseViewController: UIViewController {
+final class HomeViewController: UIViewController {
     //MARK: Properties
     
     //MARK: Lifecycle

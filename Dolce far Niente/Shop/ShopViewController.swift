@@ -141,7 +141,9 @@ extension ShopViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     // инсет для секции, добавим отступ слева только для первой секции
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return section == 0 ? UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 0) : UIEdgeInsets.zero
+        let leftInset: CGFloat = section == 0 ? 15.0 : 0.0
+        let rightInset: CGFloat = (section == collectionView.numberOfSections - 1) ? 15.0 : 0.0
+        return UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
     }
     // количество картинок по количеству картинок в массиве
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

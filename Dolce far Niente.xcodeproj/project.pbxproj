@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		13670B222B584B5F00301774 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13670B212B584B5F00301774 /* MoreViewController.swift */; };
 		1372A8282B540FA500C26885 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1372A8272B540FA500C26885 /* SnapKit */; };
-		13B217012B54769F00D92DE5 /* StudyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B217002B54769F00D92DE5 /* StudyCell.swift */; };
+		13B217012B54769F00D92DE5 /* StudyVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B217002B54769F00D92DE5 /* StudyVideoView.swift */; };
 		13D60B572B5470BB00B8915D /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B562B5470BB00B8915D /* MainTabBarController.swift */; };
 		13D60B592B5471F900B8915D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B582B5471F900B8915D /* ShopViewController.swift */; };
 		13D60B5B2B54720300B8915D /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B5A2B54720300B8915D /* ItemCardView.swift */; };
-		13D60B5D2B54720E00B8915D /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B5C2B54720E00B8915D /* CourseViewController.swift */; };
+		13D60B5D2B54720E00B8915D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D60B5C2B54720E00B8915D /* HomeViewController.swift */; };
 		13D76F082B57006E00E56A5D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13D76F072B57006D00E56A5D /* LoginViewController.swift */; };
 		13D76F0A2B5702C100E56A5D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13D76F092B5702C100E56A5D /* GoogleService-Info.plist */; };
 		13D76F0D2B57032900E56A5D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 13D76F0C2B57032900E56A5D /* FirebaseAnalytics */; };
@@ -60,11 +60,11 @@
 
 /* Begin PBXFileReference section */
 		13670B212B584B5F00301774 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
-		13B217002B54769F00D92DE5 /* StudyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCell.swift; sourceTree = "<group>"; };
+		13B217002B54769F00D92DE5 /* StudyVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyVideoView.swift; sourceTree = "<group>"; };
 		13D60B562B5470BB00B8915D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		13D60B582B5471F900B8915D /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		13D60B5A2B54720300B8915D /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
-		13D60B5C2B54720E00B8915D /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
+		13D60B5C2B54720E00B8915D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		13D76F072B57006D00E56A5D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		13D76F092B5702C100E56A5D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13F6A0AB2B53FCE4009EA1AB /* Dolce far Niente.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dolce far Niente.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,7 +135,7 @@
 		13B216FD2B5475C200D92DE5 /* Study */ = {
 			isa = PBXGroup;
 			children = (
-				13B217002B54769F00D92DE5 /* StudyCell.swift */,
+				13B217002B54769F00D92DE5 /* StudyVideoView.swift */,
 				13F6A0B22B53FCE4009EA1AB /* StudyViewController.swift */,
 			);
 			path = Study;
@@ -176,7 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				13D60B562B5470BB00B8915D /* MainTabBarController.swift */,
-				13D60B5C2B54720E00B8915D /* CourseViewController.swift */,
+				13D60B5C2B54720E00B8915D /* HomeViewController.swift */,
 				13D76F072B57006D00E56A5D /* LoginViewController.swift */,
 				13670B212B584B5F00301774 /* MoreViewController.swift */,
 			);
@@ -347,11 +347,11 @@
 				13F6A0C62B53FE93009EA1AB /* example.swift in Sources */,
 				13F6A0B32B53FCE4009EA1AB /* StudyViewController.swift in Sources */,
 				13F6A0AF2B53FCE4009EA1AB /* AppDelegate.swift in Sources */,
-				13D60B5D2B54720E00B8915D /* CourseViewController.swift in Sources */,
+				13D60B5D2B54720E00B8915D /* HomeViewController.swift in Sources */,
 				13D60B592B5471F900B8915D /* ShopViewController.swift in Sources */,
 				13F6A0B92B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld in Sources */,
 				13D60B5B2B54720300B8915D /* ItemCardView.swift in Sources */,
-				13B217012B54769F00D92DE5 /* StudyCell.swift in Sources */,
+				13B217012B54769F00D92DE5 /* StudyVideoView.swift in Sources */,
 				13FA95252B552F3A00169F35 /* CustomFonts.swift in Sources */,
 				13D60B572B5470BB00B8915D /* MainTabBarController.swift in Sources */,
 				13F6A0B12B53FCE4009EA1AB /* SceneDelegate.swift in Sources */,

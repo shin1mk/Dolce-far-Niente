@@ -32,8 +32,8 @@ final class MainTabBarController: UITabBarController {
                 title: "Study",
                 image: UIImage(systemName: "video")),
             generateVC(
-                viewController: CourseViewController(),
-                title: "Bag",
+                viewController: HomeViewController(),
+                title: "Home",
                 image: UIImage(systemName: "house")),
             generateVC(
                 viewController: MoreViewController(),
