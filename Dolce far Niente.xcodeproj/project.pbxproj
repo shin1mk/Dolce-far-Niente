@@ -123,6 +123,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		134C1F322B59165700184644 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				13D60B5C2B54720E00B8915D /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		135F15762B5828DB008E3164 /* Shop */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +169,7 @@
 		13F6A0AD2B53FCE4009EA1AB /* Dolce far Niente */ = {
 			isa = PBXGroup;
 			children = (
+				134C1F322B59165700184644 /* Home */,
 				135F15762B5828DB008E3164 /* Shop */,
 				13B216FD2B5475C200D92DE5 /* Study */,
 				13F6A0CC2B53FF35009EA1AB /* CoreData */,
@@ -176,7 +185,6 @@
 			isa = PBXGroup;
 			children = (
 				13D60B562B5470BB00B8915D /* MainTabBarController.swift */,
-				13D60B5C2B54720E00B8915D /* HomeViewController.swift */,
 				13D76F072B57006D00E56A5D /* LoginViewController.swift */,
 				13670B212B584B5F00301774 /* MoreViewController.swift */,
 			);

@@ -69,26 +69,24 @@ final class ShopViewController: UIViewController {
     // констрейнты
     private func setupUI() {
         view.backgroundColor = .black
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(0)
-            make.leading.equalToSuperview().offset(15)
-            make.height.equalTo(30)
-        }
-        
+       
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            //            make.bottom.equalToSuperview()
             make.bottom.lessThanOrEqualToSuperview()
             make.height.equalTo(1000)
         }
-        
+        scrollView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(scrollView.snp.top)
+            make.leading.equalToSuperview().offset(15)
+            make.height.equalTo(30)
+        }
         scrollView.addSubview(subtitleLabel)
         subtitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(scrollView.contentLayoutGuide.snp.top).offset(0)
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(15)
             make.height.equalTo(25)
         }
