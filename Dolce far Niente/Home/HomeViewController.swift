@@ -9,78 +9,70 @@ import UIKit
 import SnapKit
 
 final class HomeViewController: UIViewController {
+    // добавляем вью с данными
+    private let homePicture1View = HomePicture1View()
+    private let homePicture2View = HomePicture2View()
+    private let homePicture3View = HomePicture3View()
     //MARK: Properties
-    // свойства
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.SFUITextBold(ofSize: 30)
-        label.text = "Dolce candle"
-        label.textAlignment = .left
-        label.textColor = .white
-        return label
-    }()
-    private let image0View: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "home_bg0")
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
-    private let image1View: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "home_bg1")
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
+    }()
+    private let contentView: UIView = {
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        return contentView
     }()
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
+    // методы
     private func setupUI() {
         view.backgroundColor = .black
         
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.leading.equalToSuperview().offset(0) // Отступ слева
-            make.trailing.equalToSuperview().offset(0) // Отступ справа
-            make.bottom.equalToSuperview() // Если есть отступ снизу
+            make.edges.equalToSuperview()
         }
         
-        scrollView.addSubview(titleLabel)
-        titleLabel.layer.zPosition = 100
-        titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(scrollView.snp.top).offset(15) // Спускаем на 15 поинтов
-            make.leading.equalToSuperview().offset(15)
-            make.height.equalTo(30)
+        scrollView.addSubview(contentView)
+        contentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+            make.width.equalToSuperview()
         }
-        scrollView.addSubview(image0View)
-        image0View.snp.makeConstraints { make in
-            make.top.equalTo(scrollView.snp.top).offset(0) // Спускаем на 15 поинтов
-            
-            //            make.top.equalTo(titleLabel.snp.bottom).offset(-30)
+        
+        contentView.addSubview(homePicture1View)
+        homePicture1View.snp.makeConstraints { make in
+            make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
             make.height.equalTo(600)
-            make.width.equalToSuperview().offset(0) // Ширина минус двойной отступ (15 с обеих сторон)
-            make.bottom.lessThanOrEqualToSuperview().offset(-15)
-        }   
+            make.width.equalToSuperview()
+        }
         
-        scrollView.addSubview(image1View)
-        image1View.snp.makeConstraints { make in
-            make.top.equalTo(image0View.snp.bottom).offset(0)
+        contentView.addSubview(homePicture2View)
+        homePicture2View.snp.makeConstraints { make in
+            make.top.equalTo(homePicture1View.snp.bottom)
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
             make.height.equalTo(600)
-            make.width.equalToSuperview().offset(0) // Ширина минус двойной отступ (15 с обеих сторон)
-            make.bottom.lessThanOrEqualToSuperview().offset(-15)
+            make.width.equalToSuperview()
+        }    
+        
+        contentView.addSubview(homePicture3View)
+        homePicture3View.snp.makeConstraints { make in
+            make.top.equalTo(homePicture2View.snp.bottom)
+            make.leading.equalToSuperview().offset(0)
+            make.trailing.equalToSuperview().offset(0)
+            make.height.equalTo(600)
+            make.width.equalToSuperview()
+        }
+        // ограничение последней кнопки
+        contentView.snp.makeConstraints { make in
+            make.bottom.equalTo(homePicture3View.snp.bottom).offset(50)
         }
     }
-    
-} //end
+} // end

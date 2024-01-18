@@ -68,43 +68,7 @@ extension StudyVideoView: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
     // нажатие карточек
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected item at index: \(indexPath.item)")
+        print("study video: \(indexPath.item)")
         // Здесь вы можете выполнить дополнительные действия при нажатии на ячейку
-    }
-}
-//MARK: - кастомная карточка
-final class studyVideoCell: UICollectionViewCell {
-    // id карты
-    static let reuseIdentifier = "studyVideoCell"
-    // текст
-    private let titleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .white
-        return label
-    }()
-    // цикл
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupUI()
-    }
-    // констрейнт фон и скругления
-    private func setupUI() {
-        backgroundColor = .systemGray6
-        layer.cornerRadius = 10.0
-        
-        contentView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
-    
-    func configure(with title: String) {
-        titleLabel.text = title
     }
 }
