@@ -28,6 +28,16 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        // Добавьте обработчики жестов для ваших вью с использованием тегов
+        addTapGesture(to: homePicture1View, with: #selector(homePictureTapped(_:)))
+        addTapGesture(to: homePicture2View, with: #selector(homePictureTapped(_:)))
+        addTapGesture(to: homePicture3View, with: #selector(homePictureTapped(_:)))
+        
+        // Установите теги для ваших вью
+        homePicture1View.tag = 1
+        homePicture2View.tag = 2
+        homePicture3View.tag = 3
     }
     // методы
     private func setupUI() {
@@ -60,7 +70,7 @@ final class HomeViewController: UIViewController {
             make.trailing.equalToSuperview().offset(0)
             make.height.equalTo(600)
             make.width.equalToSuperview()
-        }    
+        }
         
         contentView.addSubview(homePicture3View)
         homePicture3View.snp.makeConstraints { make in
@@ -73,6 +83,20 @@ final class HomeViewController: UIViewController {
         // ограничение последней кнопки
         contentView.snp.makeConstraints { make in
             make.bottom.equalTo(homePicture3View.snp.bottom).offset(50)
+        }
+    }
+    
+    private func addTapGesture(to view: UIView, with action: Selector) {
+        let tapGesture = UITapGestureRecognizer(target: self, action: action)
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc private func homePictureTapped(_ sender: UITapGestureRecognizer) {
+        // Получите тег вью, который был нажат
+        if let tappedView = sender.view {
+            let tappedViewTag = tappedView.tag
+            print("Home picture tapped: \(tappedViewTag)")
         }
     }
 } // end
