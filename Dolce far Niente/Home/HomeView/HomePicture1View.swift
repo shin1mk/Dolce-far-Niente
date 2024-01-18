@@ -41,7 +41,7 @@ final class HomePicture1View: UIView {
         addSubview(titleLabel)
         titleLabel.layer.zPosition = 999
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(0)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(15)
             make.leading.equalToSuperview().offset(15)
             make.height.equalTo(30)
         }

@@ -13,6 +13,7 @@ final class HomeViewController: UIViewController {
     private let homePicture1View = HomePicture1View()
     private let homePicture2View = HomePicture2View()
     private let homePicture3View = HomePicture3View()
+    
     //MARK: Properties
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -28,16 +29,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        // Добавьте обработчики жестов для ваших вью с использованием тегов
-        addTapGesture(to: homePicture1View, with: #selector(homePictureTapped(_:)))
-        addTapGesture(to: homePicture2View, with: #selector(homePictureTapped(_:)))
-        addTapGesture(to: homePicture3View, with: #selector(homePictureTapped(_:)))
-        
-        // Установите теги для ваших вью
-        homePicture1View.tag = 1
-        homePicture2View.tag = 2
-        homePicture3View.tag = 3
+        setupGestureRecognizers()
     }
     // методы
     private func setupUI() {
@@ -59,7 +51,7 @@ final class HomeViewController: UIViewController {
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.height.equalTo(600)
+            make.height.equalTo(650)
             make.width.equalToSuperview()
         }
         
@@ -68,7 +60,7 @@ final class HomeViewController: UIViewController {
             make.top.equalTo(homePicture1View.snp.bottom)
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.height.equalTo(600)
+            make.height.equalTo(650)
             make.width.equalToSuperview()
         }
         
@@ -77,7 +69,7 @@ final class HomeViewController: UIViewController {
             make.top.equalTo(homePicture2View.snp.bottom)
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.height.equalTo(600)
+            make.height.equalTo(650)
             make.width.equalToSuperview()
         }
         // ограничение последней кнопки
@@ -85,18 +77,40 @@ final class HomeViewController: UIViewController {
             make.bottom.equalTo(homePicture3View.snp.bottom).offset(50)
         }
     }
-    
+} // end
+//MARK: тапы по картинкам
+extension HomeViewController {
+    // присваиваем тэг
+    private func setupGestureRecognizers() {
+        setupTapGesture(for: homePicture1View, withTag: 1)
+        setupTapGesture(for: homePicture2View, withTag: 2)
+        setupTapGesture(for: homePicture3View, withTag: 3)
+    }
+
+    private func setupTapGesture(for view: UIView, withTag tag: Int) {
+        addTapGesture(to: view, with: #selector(homePictureTapped(_:)))
+        view.tag = tag
+    }
+    // добавляем жест нажатия
     private func addTapGesture(to view: UIView, with action: Selector) {
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
         view.isUserInteractionEnabled = true
         view.addGestureRecognizer(tapGesture)
     }
-    
+    // функция нажатия
     @objc private func homePictureTapped(_ sender: UITapGestureRecognizer) {
-        // Получите тег вью, который был нажат
         if let tappedView = sender.view {
             let tappedViewTag = tappedView.tag
-            print("Home picture tapped: \(tappedViewTag)")
+
+            switch tappedViewTag {
+            case 0:
+                print("Home picture tapped: \(tappedViewTag) - Зеленый 1")
+            case 1:
+                print("Home picture tapped: \(tappedViewTag) - Красный 2")
+            default:
+                print("Home picture tapped: \(tappedViewTag) - Синий 3")
+            }
         }
     }
-} // end
+
+}
