@@ -11,6 +11,8 @@ import SnapKit
 final class StudyCardView: UIView {
     // массив картинок
     private let images = ["pic15", "pic5", "pic3"]
+    private let titles = ["Rose", "Pro", "Exotic"]
+
     // таблица
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -76,6 +78,7 @@ extension StudyCardView: UICollectionViewDelegateFlowLayout, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "studyCardCell", for: indexPath) as! studyCardCell
         cell.imageName = self.images[indexPath.item]
+        cell.title = self.titles[indexPath.item]
         return cell
     }
     // нажатие с присвоением индекса

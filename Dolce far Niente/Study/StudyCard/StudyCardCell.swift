@@ -16,7 +16,20 @@ final class studyCardCell: UICollectionViewCell {
             backgroundImage.image = UIImage(named: imageName)
         }
     }
+    var title: String? {
+        didSet {
+            guard let title = title else { return }
+            titleLabel.text = title
+        }
+    }
     // свойства
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
+        label.font = UIFont.SFUITextBold(ofSize: 25)
+        return label
+    }()
     private let backgroundImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +55,12 @@ final class studyCardCell: UICollectionViewCell {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
             make.bottom.equalToSuperview()
+        }
+        contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(10)
+            make.right.equalToSuperview().offset(-10)
         }
     }
 }

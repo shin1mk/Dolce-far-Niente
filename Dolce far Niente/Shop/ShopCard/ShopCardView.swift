@@ -10,7 +10,8 @@ import SnapKit
 
 final class ShopCardView: UIView {
     // цикл на 10 карточек
-    private let images = ["pic16", "pic19", "pic20"]
+    private let images = ["pic19", "pic16", "pic20"]
+    private let titles = ["Бутоны", "На стебле", "Экзотик"]
 
     // колекция
     private let collectionView: UICollectionView = {
@@ -77,6 +78,7 @@ extension ShopCardView: UICollectionViewDelegateFlowLayout, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storeCustomCell", for: indexPath) as! storeCustomCell
         cell.imageName = self.images[indexPath.item]
+        cell.title = self.titles[indexPath.item]
         return cell
     }
     // нажатие с присвоением индекса
