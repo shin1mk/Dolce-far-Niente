@@ -16,6 +16,7 @@
 		135F958E2B5948BE00A91F53 /* StudyVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F958D2B5948BE00A91F53 /* StudyVideoCell.swift */; };
 		135F95902B5948ED00A91F53 /* StudyCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F958F2B5948ED00A91F53 /* StudyCardCell.swift */; };
 		135F95922B59490000A91F53 /* StudyCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F95912B59490000A91F53 /* StudyCardView.swift */; };
+		135F95942B5A509700A91F53 /* HomePicture4View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 135F95932B5A509700A91F53 /* HomePicture4View.swift */; };
 		13670B222B584B5F00301774 /* MoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13670B212B584B5F00301774 /* MoreViewController.swift */; };
 		1372A8282B540FA500C26885 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1372A8272B540FA500C26885 /* SnapKit */; };
 		13B217012B54769F00D92DE5 /* StudyVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B217002B54769F00D92DE5 /* StudyVideoView.swift */; };
@@ -77,6 +78,7 @@
 		135F958D2B5948BE00A91F53 /* StudyVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyVideoCell.swift; sourceTree = "<group>"; };
 		135F958F2B5948ED00A91F53 /* StudyCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCardCell.swift; sourceTree = "<group>"; };
 		135F95912B59490000A91F53 /* StudyCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyCardView.swift; sourceTree = "<group>"; };
+		135F95932B5A509700A91F53 /* HomePicture4View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePicture4View.swift; sourceTree = "<group>"; };
 		13670B212B584B5F00301774 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		13B217002B54769F00D92DE5 /* StudyVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyVideoView.swift; sourceTree = "<group>"; };
 		13D60B562B5470BB00B8915D /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				134C1F332B5935C100184644 /* HomePicture1View.swift */,
 				134C1F352B593B2E00184644 /* HomePicture2View.swift */,
 				132E61282B59438000176965 /* HomePicture3View.swift */,
+				135F95932B5A509700A91F53 /* HomePicture4View.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				13F6A0B92B53FCE4009EA1AB /* Dolce_far_Niente.xcdatamodeld in Sources */,
 				13D60B5B2B54720300B8915D /* ItemCardView.swift in Sources */,
 				13B217012B54769F00D92DE5 /* StudyVideoView.swift in Sources */,
+				135F95942B5A509700A91F53 /* HomePicture4View.swift in Sources */,
 				13FA95252B552F3A00169F35 /* CustomFonts.swift in Sources */,
 				13D60B572B5470BB00B8915D /* MainTabBarController.swift in Sources */,
 				13F6A0B12B53FCE4009EA1AB /* SceneDelegate.swift in Sources */,

@@ -10,7 +10,7 @@ import SnapKit
 
 final class StudyCardView: UIView {
     // массив картинок
-    private let images = ["me", "me", "me"]
+    private let images = ["pic15", "pic5", "pic3"]
     // таблица
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()

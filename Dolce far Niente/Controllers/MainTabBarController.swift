@@ -24,6 +24,10 @@ final class MainTabBarController: UITabBarController {
         
         viewControllers = [
             generateVC(
+                viewController: HomeViewController(),
+                title: "Home",
+                image: UIImage(systemName: "house")),
+            generateVC(
                 viewController: ShopViewController(),
                 title: "Shop",
                 image: UIImage(systemName: "bag")),
@@ -31,10 +35,7 @@ final class MainTabBarController: UITabBarController {
                 viewController: StudyViewController(),
                 title: "Study",
                 image: UIImage(systemName: "video")),
-            generateVC(
-                viewController: HomeViewController(),
-                title: "Home",
-                image: UIImage(systemName: "house")),
+        
             generateVC(
                 viewController: MoreViewController(),
                 title: "Еще",

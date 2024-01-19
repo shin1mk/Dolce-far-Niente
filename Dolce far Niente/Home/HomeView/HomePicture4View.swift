@@ -1,35 +1,26 @@
 //
-//  HomePicture2View.swift
+//  HomePicture4View.swift
 //  Dolce far Niente
 //
-//  Created by SHIN MIKHAIL on 18.01.2024.
+//  Created by SHIN MIKHAIL on 19.01.2024.
 //
 
 import UIKit
 import SnapKit
 
-final class HomePicture2View: UIView {
+final class HomePicture4View: UIView {
     // MARK: Properties
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFUITextBold(ofSize: 18)
-        label.text = "Dolce Store"
-        label.textAlignment = .left
-        label.textColor = .white
-        return label
-    }()
-    private let subtitleLabel: UILabel = {
-        let label = UILabel()
         label.font = UIFont.SFUITextBold(ofSize: 20)
-        label.text = "Добро пожаловать в наш уютный магазин свечей и флористики, где каждый продукт — это история вдохновения"
+        label.text = "Dolce candle"
         label.textAlignment = .left
         label.textColor = .white
-        label.numberOfLines = 0
         return label
     }()
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "pic17")
+        imageView.image = UIImage(named: "pic2")
         imageView.contentMode = .scaleToFill
         return imageView
     }()
@@ -52,15 +43,7 @@ final class HomePicture2View: UIView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(15)
             make.leading.equalToSuperview().offset(15)
-            make.trailing.equalToSuperview().offset(-15)
-        }
-        
-        addSubview(subtitleLabel)
-        subtitleLabel.layer.zPosition = 999
-        subtitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(15)
-            make.leading.equalToSuperview().offset(15)
-            make.trailing.equalToSuperview().offset(-30)
+            make.height.equalTo(30)
         }
         
         addSubview(imageView)

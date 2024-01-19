@@ -12,16 +12,25 @@ final class HomePicture1View: UIView {
     // MARK: Properties
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFUITextBold(ofSize: 30)
-        label.text = "Dolce candle"
+        label.font = UIFont.SFUITextBold(ofSize: 18)
+        label.text = "Dolce Study"
         label.textAlignment = .left
         label.textColor = .white
+        return label
+    }()    
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.SFUITextBold(ofSize: 20)
+        label.text = "Откройте для себя мир творчества с курсом свечковой флористики"
+        label.textAlignment = .left
+        label.textColor = .white
+        label.numberOfLines = 0
         return label
     }()
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "home_bg0")
-        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "pic13")
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     // MARK: Lifecycle
@@ -43,7 +52,15 @@ final class HomePicture1View: UIView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(15)
             make.leading.equalToSuperview().offset(15)
-            make.height.equalTo(30)
+            make.trailing.equalToSuperview().offset(-15)
+        }
+        
+        addSubview(subtitleLabel)
+        subtitleLabel.layer.zPosition = 999
+        subtitleLabel.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-30)
         }
         
         addSubview(imageView)
@@ -53,7 +70,7 @@ final class HomePicture1View: UIView {
             make.trailing.equalToSuperview().offset(0)
             make.height.equalTo(600)
             make.width.equalToSuperview().offset(0)
-            make.bottom.lessThanOrEqualToSuperview().offset(-5)
+            make.bottom.lessThanOrEqualToSuperview().offset(-1)
         }
     }
 }

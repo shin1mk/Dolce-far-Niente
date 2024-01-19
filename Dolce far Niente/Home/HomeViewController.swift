@@ -13,6 +13,7 @@ final class HomeViewController: UIViewController {
     private let homePicture1View = HomePicture1View()
     private let homePicture2View = HomePicture2View()
     private let homePicture3View = HomePicture3View()
+    private let homePicture4View = HomePicture4View()
     
     //MARK: Properties
     private let scrollView: UIScrollView = {
@@ -25,6 +26,14 @@ final class HomeViewController: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         return contentView
     }()
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .white
+        indicator.hidesWhenStopped = true
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        return indicator
+    }()
+
     //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +49,13 @@ final class HomeViewController: UIViewController {
             make.edges.equalToSuperview()
         }
         
+        view.addSubview(activityIndicator)
+        activityIndicator.layer.zPosition = 1000
+        activityIndicator.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -51,7 +67,7 @@ final class HomeViewController: UIViewController {
             make.top.equalToSuperview()
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.height.equalTo(650)
+            make.height.equalTo(600)
             make.width.equalToSuperview()
         }
         
@@ -60,7 +76,7 @@ final class HomeViewController: UIViewController {
             make.top.equalTo(homePicture1View.snp.bottom)
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.height.equalTo(650)
+            make.height.equalTo(600)
             make.width.equalToSuperview()
         }
         
@@ -69,12 +85,21 @@ final class HomeViewController: UIViewController {
             make.top.equalTo(homePicture2View.snp.bottom)
             make.leading.equalToSuperview().offset(0)
             make.trailing.equalToSuperview().offset(0)
-            make.height.equalTo(650)
+            make.height.equalTo(600)
+            make.width.equalToSuperview()
+        }    
+        
+        contentView.addSubview(homePicture4View)
+        homePicture4View.snp.makeConstraints { make in
+            make.top.equalTo(homePicture3View.snp.bottom)
+            make.leading.equalToSuperview().offset(0)
+            make.trailing.equalToSuperview().offset(0)
+            make.height.equalTo(600)
             make.width.equalToSuperview()
         }
         // ограничение последней кнопки
         contentView.snp.makeConstraints { make in
-            make.bottom.equalTo(homePicture3View.snp.bottom).offset(50)
+            make.bottom.equalTo(homePicture4View.snp.bottom).offset(50)
         }
     }
 } // end
@@ -103,14 +128,29 @@ extension HomeViewController {
             let tappedViewTag = tappedView.tag
 
             switch tappedViewTag {
-            case 0:
-                print("Home picture tapped: \(tappedViewTag) - Зеленый 1")
             case 1:
+                print("Home picture tapped: \(tappedViewTag) - Зеленый 1")
+                transitionToTab(index: 2) // Индекс таба "study" в массиве таб-бара
+            case 2:
                 print("Home picture tapped: \(tappedViewTag) - Красный 2")
-            default:
+                transitionToTab(index: 1) // Индекс таба "shop" в массиве таб-бара
+            case 3:
                 print("Home picture tapped: \(tappedViewTag) - Синий 3")
+                // Ваш код для третьей картинки
+            default:
+                break
             }
         }
     }
+    // переход на таб с анимацией
+    private func transitionToTab(index: Int) {
+        guard let tabBarController = self.tabBarController else { return }
 
+        let fromView = tabBarController.selectedViewController?.view
+        let toView = tabBarController.viewControllers?[index].view
+
+        UIView.transition(from: fromView!, to: toView!, duration: 0.5, options: .transitionCrossDissolve, completion: nil)
+        
+        tabBarController.selectedIndex = index
+    }
 }

@@ -10,7 +10,7 @@ import SnapKit
 
 final class ShopCardView: UIView {
     // цикл на 10 карточек
-    private let images = ["red", "home_bg4", "orange"]
+    private let images = ["pic16", "pic19", "pic20"]
 
     // колекция
     private let collectionView: UICollectionView = {
