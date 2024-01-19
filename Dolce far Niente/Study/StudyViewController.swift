@@ -13,6 +13,7 @@ final class StudyViewController: UIViewController {
     // добавляем вью с карточками
     private let studyVideoView = StudyVideoView()
     private let studyCardView = StudyCardView()
+    private let tutorialView = TutorialView()
     // свойства
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -56,17 +57,18 @@ final class StudyViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        configureDidSelectItem()
         studyCardView.scrollToInitialItem()
     }
     // констрейнты
     private func setupUI() {
         view.backgroundColor = .black
-       
+        
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-
+        
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -79,13 +81,14 @@ final class StudyViewController: UIViewController {
             make.leading.equalToSuperview().offset(15)
             make.height.equalTo(30)
         }
+        // субтайтл
         contentView.addSubview(subtitleLabel)
         subtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(15)
             make.height.equalTo(25)
         }
-        
+        // стади кард большие
         contentView.addSubview(studyCardView)
         studyCardView.snp.makeConstraints { make in
             make.top.equalTo(subtitleLabel.snp.bottom).offset(10)
@@ -94,28 +97,61 @@ final class StudyViewController: UIViewController {
             make.height.equalTo(510)
             make.width.equalTo(view) // Добавлено для горизонтальной прокрутки
         }
-        
+        // туториал
+        contentView.addSubview(tutorialView)
+        tutorialView.snp.makeConstraints { make in
+            make.top.equalTo(studyCardView.snp.bottom).offset(15)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.height.equalTo(200)
+        }
+        // описание
         contentView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(studyCardView.snp.bottom).offset(15)
+            make.top.equalTo(tutorialView.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(25) // Установите подходящую высоту
         }
-        
+        // карточки с видосами
         contentView.addSubview(studyVideoView)
         studyVideoView.snp.makeConstraints { make in
             make.top.equalTo(textLabel.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(930)
-//            make.bottom.equalTo(scrollView.snp.bottom).offset(-15)
             make.bottom.equalToSuperview().offset(-5)
         }
-        // ограничение последней кнопки
-        contentView.snp.makeConstraints { make in
-//            make.bottom.equalTo(studyVideoView.snp.bottom).offset(5)
+    }
+}
+//MARK: - нажатая ячейка и выбираем ее кейс и вызываем функцию
+extension StudyViewController {
+    // обрабатываем что б не было утечек
+    private func configureDidSelectItem() {
+        studyCardView.didSelectItem = { [weak self] index in
+            guard let self = self else { return }
+            self.handleCellSelection(index: index)
         }
     }
-  
+    // получаем индекс и вызываем функцию
+    private func handleCellSelection(index: Int) {
+        switch index {
+        case 0:
+            print("RoseCourseViewController")
+            let roseCourseVC = RoseCourseViewController()
+            navigationController?.pushViewController(roseCourseVC, animated: true)
+        case 1:
+            print("ProCourseViewController")
+            let proCourseVC = ProCourseViewController()
+            navigationController?.pushViewController(proCourseVC, animated: true)
+        case 2:
+            print("ExoticCourseViewController")
+            let exoticCourseVC = ExoticCourseViewController()
+            navigationController?.pushViewController(exoticCourseVC, animated: true)
+        default:
+            // Действия для других ячеек, если необходимо
+            break
+        }
+    }
+
 }

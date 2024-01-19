@@ -12,6 +12,7 @@ final class ShopViewController: UIViewController {
     // добавляем вью с карточками
     private let itemCardView = ItemCardView()
     private let shopCardView = ShopCardView()
+    private let tutorialView = TutorialView()
     // свойства
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -65,25 +66,27 @@ final class ShopViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-
+        // скролл
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
         }
+        // контент вью НА скрол
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(scrollView.snp.top)
             make.leading.equalToSuperview().offset(15)
             make.height.equalTo(30)
         }
+        // субтайтл
         contentView.addSubview(subtitleLabel)
         subtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(10)
             make.leading.equalToSuperview().offset(15)
             make.height.equalTo(25)
         }
-        
+        // карточки большие
         contentView.addSubview(shopCardView)
         shopCardView.snp.makeConstraints { make in
             make.top.equalTo(subtitleLabel.snp.bottom).offset(10)
@@ -92,27 +95,30 @@ final class ShopViewController: UIViewController {
             make.height.equalTo(510)
             make.width.equalTo(view) // Добавлено для горизонтальной прокрутки
         }
-        
+        // туториал
+        contentView.addSubview(tutorialView)
+        tutorialView.snp.makeConstraints { make in
+            make.top.equalTo(shopCardView.snp.bottom).offset(15)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+            make.height.equalTo(200)
+        }
+        // текст продуктов
         contentView.addSubview(textLabel)
         textLabel.snp.makeConstraints { make in
-            make.top.equalTo(shopCardView.snp.bottom).offset(15)
+            make.top.equalTo(tutorialView.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(25) // Установите подходящую высоту
         }
-        
+        // карточки
         contentView.addSubview(itemCardView)
         itemCardView.snp.makeConstraints { make in
             make.top.equalTo(textLabel.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(930)
-//            make.bottom.equalTo(scrollView.snp.bottom).offset(-15)
             make.bottom.equalToSuperview().offset(-5)
-        }
-        // ограничение последней кнопки
-        contentView.snp.makeConstraints { make in
-//            make.bottom.equalTo(itemCardView.snp.bottom).offset(5)
         }
     }
 }

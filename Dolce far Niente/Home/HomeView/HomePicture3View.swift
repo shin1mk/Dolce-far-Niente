@@ -13,7 +13,7 @@ final class HomePicture3View: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.SFUITextBold(ofSize: 20)
-        label.text = "Dolce. Uniqueness."
+        label.text = "Dolce Uniqueness"
         label.textAlignment = .left
         label.textColor = .white
         return label

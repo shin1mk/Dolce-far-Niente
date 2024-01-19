@@ -13,7 +13,7 @@ final class HomePicture4View: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.SFUITextBold(ofSize: 20)
-        label.text = "Dolce. Tutorial."
+        label.text = "Dolce Tutorial"
         label.textAlignment = .left
         label.textColor = .black
         return label

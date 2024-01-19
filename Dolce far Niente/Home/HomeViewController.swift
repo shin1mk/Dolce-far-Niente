@@ -14,10 +14,7 @@ final class HomeViewController: UIViewController {
     private let homePicture2View = HomePicture2View()
     private let homePicture3View = HomePicture3View()
     private let homePicture4View = HomePicture4View()
-    
-    
     private let haveAQuestionsView = HaveAQuestionsView()
-    
     //MARK: Properties
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -101,11 +98,7 @@ final class HomeViewController: UIViewController {
             make.trailing.equalToSuperview().offset(0)
             make.height.equalTo(70)
             make.width.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-10)
-        }
-        // ограничение последней кнопки
-        contentView.snp.makeConstraints { make in
-//            make.bottom.equalTo(haveAQuestionsView.snp.bottom).offset(5)
+            make.bottom.equalToSuperview().offset(-1)
         }
     }
 } // end
@@ -116,6 +109,7 @@ extension HomeViewController {
         setupTapGesture(for: homePicture1View, withTag: 1)
         setupTapGesture(for: homePicture2View, withTag: 2)
         setupTapGesture(for: homePicture3View, withTag: 3)
+        setupTapGesture(for: homePicture4View, withTag: 4)
     }
 
     private func setupTapGesture(for view: UIView, withTag tag: Int) {
@@ -135,13 +129,16 @@ extension HomeViewController {
 
             switch tappedViewTag {
             case 1:
-                print("Home picture tapped: \(tappedViewTag) - Зеленый 1")
+                print("Home picture tapped: \(tappedViewTag) - учеба 1")
                 transitionToTab(index: 2) // Индекс таба "study" в массиве таб-бара
             case 2:
-                print("Home picture tapped: \(tappedViewTag) - Красный 2")
+                print("Home picture tapped: \(tappedViewTag) - магазин 2")
                 transitionToTab(index: 1) // Индекс таба "shop" в массиве таб-бара
             case 3:
-                print("Home picture tapped: \(tappedViewTag) - Синий 3")
+                print("Home picture tapped: \(tappedViewTag) - уникальный 3")
+                // Ваш код для третьей картинки
+            case 4:
+                print("Home picture tapped: \(tappedViewTag) - туториал 4")
                 // Ваш код для третьей картинки
             default:
                 break

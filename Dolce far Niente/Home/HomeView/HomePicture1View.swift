@@ -13,7 +13,7 @@ final class HomePicture1View: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.SFUITextBold(ofSize: 20)
-        label.text = "Dolce. Study."
+        label.text = "Dolce Study"
         label.textAlignment = .left
         label.textColor = .white
         return label
