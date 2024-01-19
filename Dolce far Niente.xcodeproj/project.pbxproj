@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		13217DD82B5B28F000A27772 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13217DD72B5B28F000A27772 /* TutorialViewController.swift */; };
+		13217DDB2B5B2FA000A27772 /* Rose1VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13217DDA2B5B2FA000A27772 /* Rose1VideoViewController.swift */; };
 		132E61272B59417A00176965 /* ItemCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E61262B59417A00176965 /* ItemCardCell.swift */; };
 		132E61292B59438000176965 /* HomePicture3View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E61282B59438000176965 /* HomePicture3View.swift */; };
 		134C1F342B5935C100184644 /* HomePicture1View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134C1F332B5935C100184644 /* HomePicture1View.swift */; };
@@ -76,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		13217DD72B5B28F000A27772 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		13217DDA2B5B2FA000A27772 /* Rose1VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rose1VideoViewController.swift; sourceTree = "<group>"; };
 		132E61262B59417A00176965 /* ItemCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardCell.swift; sourceTree = "<group>"; };
 		132E61282B59438000176965 /* HomePicture3View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePicture3View.swift; sourceTree = "<group>"; };
 		134C1F332B5935C100184644 /* HomePicture1View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePicture1View.swift; sourceTree = "<group>"; };
@@ -155,6 +157,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		13217DD92B5B2F8700A27772 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				13217DDA2B5B2FA000A27772 /* Rose1VideoViewController.swift */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
 		132E612A2B59457200176965 /* ItemCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +288,7 @@
 		13F6A0AD2B53FCE4009EA1AB /* Dolce far Niente */ = {
 			isa = PBXGroup;
 			children = (
+				13217DD92B5B2F8700A27772 /* Videos */,
 				13C2945E2B5B21CD0006F722 /* Courses */,
 				13C2945B2B5AA8D80006F722 /* Tutorial */,
 				138F6CB22B5A68F400BE4F08 /* Questions */,
@@ -477,6 +488,7 @@
 				135F95882B59460A00A91F53 /* ShopCardCell.swift in Sources */,
 				13F6A0AF2B53FCE4009EA1AB /* AppDelegate.swift in Sources */,
 				13D60B5D2B54720E00B8915D /* HomeViewController.swift in Sources */,
+				13217DDB2B5B2FA000A27772 /* Rose1VideoViewController.swift in Sources */,
 				135F958E2B5948BE00A91F53 /* StudyVideoCell.swift in Sources */,
 				13217DD82B5B28F000A27772 /* TutorialViewController.swift in Sources */,
 				13D60B592B5471F900B8915D /* ShopViewController.swift in Sources */,

@@ -14,6 +14,8 @@ final class StudyViewController: UIViewController {
     private let studyVideoView = StudyVideoView()
     private let studyCardView = StudyCardView()
     private let tutorialView = TutorialView()
+    private let tutorialPassword = "1111"
+
     // свойства
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -132,12 +134,46 @@ final class StudyViewController: UIViewController {
         tutorialView.isUserInteractionEnabled = true
     }
     // функция туториал вью открываем его контроллер
+//    @objc private func tutorialViewTapped() {
+//        print("TutorialView tapped")
+//        let tutorialVC = TutorialViewController()
+//        navigationController?.pushViewController(tutorialVC, animated: true)
+//    }
     @objc private func tutorialViewTapped() {
-        print("TutorialView tapped")
+        presentPasswordAlert()
+    }
+
+    private func presentPasswordAlert() {
+        let alertController = UIAlertController(title: "Введите пароль", message: nil, preferredStyle: .alert)
+        alertController.addTextField { textField in
+            textField.placeholder = "Пароль"
+            textField.isSecureTextEntry = true
+        }
+
+        let checkPasswordAction = UIAlertAction(title: "OK", style: .default) { [weak self, weak alertController] _ in
+            self?.validatePassword(alertController?.textFields?.first?.text)
+        }
+
+        alertController.addAction(checkPasswordAction)
+
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+
+    private func validatePassword(_ enteredPassword: String?) {
+        guard let enteredPassword = enteredPassword, enteredPassword == tutorialPassword else {
+            print("Неверный пароль")
+            // Здесь вы можете вывести сообщение об ошибке или предпринять другие действия
+            return
+        }
+
+        print("Верный пароль, открываю TutorialViewController")
         let tutorialVC = TutorialViewController()
         navigationController?.pushViewController(tutorialVC, animated: true)
     }
-}
+} // end
 //MARK: - нажатая ячейка и выбираем ее кейс и вызываем функцию
 extension StudyViewController {
     // обрабатываем что б не было утечек памяти
@@ -166,7 +202,7 @@ extension StudyViewController {
             break
         }
     }
-    // вызываем функцию для 10 ячеек для каждого видео
+    // вызываем функцию для 10 ячеек видео
     private func configureDidSelectItemVideo() {
         studyVideoView.didSelectItem = { [weak self] index in
             guard let self = self else { return }
@@ -178,8 +214,8 @@ extension StudyViewController {
         switch index {
         case 0:
             print("RoseCourseViewController")
-            let roseCourseVC = RoseCourseViewController()
-            navigationController?.pushViewController(roseCourseVC, animated: true)
+            let rose1vc = Rose1VideoViewController()
+            navigationController?.pushViewController(rose1vc, animated: true)
         case 1:
             print("ProCourseViewController")
             let proCourseVC = ProCourseViewController()
