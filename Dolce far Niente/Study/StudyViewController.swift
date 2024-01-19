@@ -109,11 +109,12 @@ final class StudyViewController: UIViewController {
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.height.equalTo(930)
-            make.bottom.equalTo(scrollView.snp.bottom).offset(-15)
+//            make.bottom.equalTo(scrollView.snp.bottom).offset(-15)
+            make.bottom.equalToSuperview().offset(-5)
         }
         // ограничение последней кнопки
         contentView.snp.makeConstraints { make in
-            make.bottom.equalTo(studyVideoView.snp.bottom).offset(0)
+//            make.bottom.equalTo(studyVideoView.snp.bottom).offset(5)
         }
     }
   

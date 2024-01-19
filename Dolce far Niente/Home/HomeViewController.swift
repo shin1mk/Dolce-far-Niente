@@ -15,6 +15,9 @@ final class HomeViewController: UIViewController {
     private let homePicture3View = HomePicture3View()
     private let homePicture4View = HomePicture4View()
     
+    
+    private let haveAQuestionsView = HaveAQuestionsView()
+    
     //MARK: Properties
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -43,25 +46,18 @@ final class HomeViewController: UIViewController {
     // методы
     private func setupUI() {
         view.backgroundColor = .black
-        
+        // добавили скролл
         view.addSubview(scrollView)
         scrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
-        view.addSubview(activityIndicator)
-        activityIndicator.layer.zPosition = 1000
-        activityIndicator.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
-        
+        // добавили сверху контент вью
         scrollView.addSubview(contentView)
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.equalToSuperview()
         }
-        
+        // картинка 1 обучение
         contentView.addSubview(homePicture1View)
         homePicture1View.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -70,7 +66,7 @@ final class HomeViewController: UIViewController {
             make.height.equalTo(600)
             make.width.equalToSuperview()
         }
-        
+        // картинка 2 магазин
         contentView.addSubview(homePicture2View)
         homePicture2View.snp.makeConstraints { make in
             make.top.equalTo(homePicture1View.snp.bottom)
@@ -79,7 +75,7 @@ final class HomeViewController: UIViewController {
             make.height.equalTo(600)
             make.width.equalToSuperview()
         }
-        
+        // картинка 3 книга
         contentView.addSubview(homePicture3View)
         homePicture3View.snp.makeConstraints { make in
             make.top.equalTo(homePicture2View.snp.bottom)
@@ -88,7 +84,7 @@ final class HomeViewController: UIViewController {
             make.height.equalTo(600)
             make.width.equalToSuperview()
         }    
-        
+        // картинка 4
         contentView.addSubview(homePicture4View)
         homePicture4View.snp.makeConstraints { make in
             make.top.equalTo(homePicture3View.snp.bottom)
@@ -96,10 +92,20 @@ final class HomeViewController: UIViewController {
             make.trailing.equalToSuperview().offset(0)
             make.height.equalTo(600)
             make.width.equalToSuperview()
+        }   
+        // блок вопросы
+        contentView.addSubview(haveAQuestionsView)
+        haveAQuestionsView.snp.makeConstraints { make in
+            make.top.equalTo(homePicture4View.snp.bottom).offset(-1)
+            make.leading.equalToSuperview().offset(0)
+            make.trailing.equalToSuperview().offset(0)
+            make.height.equalTo(70)
+            make.width.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-10)
         }
         // ограничение последней кнопки
         contentView.snp.makeConstraints { make in
-            make.bottom.equalTo(homePicture4View.snp.bottom).offset(50)
+//            make.bottom.equalTo(haveAQuestionsView.snp.bottom).offset(5)
         }
     }
 } // end

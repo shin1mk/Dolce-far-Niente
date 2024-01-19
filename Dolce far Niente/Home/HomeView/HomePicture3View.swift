@@ -13,15 +13,15 @@ final class HomePicture3View: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.SFUITextBold(ofSize: 20)
-        label.text = "Dolce candle"
+        label.text = "Dolce. Uniqueness."
         label.textAlignment = .left
         label.textColor = .white
         return label
     }()
     private let subtitleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.SFUITextBold(ofSize: 20)
-        label.text = "Создание Уникальных Цветов Вручную с заботой и мастерством"
+        label.font = UIFont.SFUITextBold(ofSize: 16)
+        label.text = "Создание уникальных цветов\nвручную с заботой и мастерством"
         label.textAlignment = .left
         label.textColor = .white
         label.numberOfLines = 0
@@ -60,17 +60,16 @@ final class HomePicture3View: UIView {
         subtitleLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(15)
             make.leading.equalToSuperview().offset(15)
-            make.trailing.equalToSuperview().offset(-30)
+            make.trailing.equalToSuperview().offset(-45)
         }
         
         addSubview(imageView)
         imageView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.bottom)
-            make.leading.equalToSuperview().offset(0)
-            make.trailing.equalToSuperview().offset(0)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
             make.height.equalTo(600)
-            make.width.equalToSuperview().offset(0)
-            make.bottom.lessThanOrEqualToSuperview().offset(-1)
+            make.bottom.lessThanOrEqualToSuperview()
         }
     }
 }

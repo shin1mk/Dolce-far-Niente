@@ -13,7 +13,7 @@ final class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         generateTabBar()
-        tabBar.backgroundColor = UIColor.systemBackground
+//        tabBar.backgroundColor = UIColor.systemGray6
     }
     
     override func viewWillAppear(_ animated: Bool) {
