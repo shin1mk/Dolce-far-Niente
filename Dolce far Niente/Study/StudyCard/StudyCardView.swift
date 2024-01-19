@@ -12,7 +12,7 @@ final class StudyCardView: UIView {
     // массив картинок
     private let images = ["pic15", "pic5", "pic3"]
     private let titles = ["Rose", "Pro", "Exotic"]
-    // передаем в studyVC номер нажатой ячейки
+    // передаем в studyVC номер нажатой ячейки получаем индек при нажатии внизу функция didSelectItemAt
     var didSelectItem: ((Int) -> Void)?
     // таблица
     private let collectionView: UICollectionView = {
@@ -31,8 +31,6 @@ final class StudyCardView: UIView {
         super.init(frame: frame)
         setupUI()
         setupDelegate()
-        
-
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,30 +82,9 @@ extension StudyCardView: UICollectionViewDelegateFlowLayout, UICollectionViewDat
         cell.title = self.titles[indexPath.item]
         return cell
     }
-    // нажатие с присвоением индекса
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        // Обработка нажатия на ячейку, например, выводим номер нажатой ячейки
-//        print("studyCardCell: \(indexPath.item)")
-//    }
+    // нажатие карточек и передача индекс наверх в var didSelectItem: ((Int) -> Void)?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.item {
-        case 0:
-            print("studyCardCell: \(indexPath.item)")
-            // Действия для ячейки с индексом 0
-            didSelectItem?(0)
-        case 1:
-            print("studyCardCell: \(indexPath.item)")
-            // Выполнение дополнительных действий, например, вызов замыкания
-            didSelectItem?(1)
-        case 2:
-            print("studyCardCell: \(indexPath.item)")
-            // Действия для ячейки с индексом 2
-            didSelectItem?(2)
-        default:
-            // Действия для других ячеек, если необходимо
-            break
-        }
+        print("studyCardCell: \(indexPath.item)")
+        didSelectItem?(indexPath.item)
     }
-
-
 }

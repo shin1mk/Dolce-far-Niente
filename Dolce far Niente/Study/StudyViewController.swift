@@ -53,11 +53,13 @@ final class StudyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupGesture()
+        configureDidSelectItemCARD()
+        configureDidSelectItemVideo()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configureDidSelectItem()
         studyCardView.scrollToInitialItem()
     }
     // констрейнты
@@ -123,18 +125,56 @@ final class StudyViewController: UIViewController {
             make.bottom.equalToSuperview().offset(-5)
         }
     }
+    // добавим жест для туториал вью потому что он один
+    private func setupGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tutorialViewTapped))
+        tutorialView.addGestureRecognizer(tapGesture)
+        tutorialView.isUserInteractionEnabled = true
+    }
+    // функция туториал вью открываем его контроллер
+    @objc private func tutorialViewTapped() {
+        print("TutorialView tapped")
+        let tutorialVC = TutorialViewController()
+        navigationController?.pushViewController(tutorialVC, animated: true)
+    }
 }
 //MARK: - нажатая ячейка и выбираем ее кейс и вызываем функцию
 extension StudyViewController {
-    // обрабатываем что б не было утечек
-    private func configureDidSelectItem() {
+    // обрабатываем что б не было утечек памяти
+    private func configureDidSelectItemCARD() {
         studyCardView.didSelectItem = { [weak self] index in
             guard let self = self else { return }
-            self.handleCellSelection(index: index)
+            self.handleCellSelectionCARD(index: index)
+        }
+    }
+    // получаем индекс и вызываем функцию курсы 3 ячейки
+    private func handleCellSelectionCARD(index: Int) {
+        switch index {
+        case 0:
+            print("RoseCourseViewController")
+            let roseCourseVC = RoseCourseViewController()
+            navigationController?.pushViewController(roseCourseVC, animated: true)
+        case 1:
+            print("ProCourseViewController")
+            let proCourseVC = ProCourseViewController()
+            navigationController?.pushViewController(proCourseVC, animated: true)
+        case 2:
+            print("ExoticCourseViewController")
+            let exoticCourseVC = ExoticCourseViewController()
+            navigationController?.pushViewController(exoticCourseVC, animated: true)
+        default:
+            break
+        }
+    }
+    // вызываем функцию для 10 ячеек для каждого видео
+    private func configureDidSelectItemVideo() {
+        studyVideoView.didSelectItem = { [weak self] index in
+            guard let self = self else { return }
+            self.handleCellSelectionVideo(index: index)
         }
     }
     // получаем индекс и вызываем функцию
-    private func handleCellSelection(index: Int) {
+    private func handleCellSelectionVideo(index: Int) {
         switch index {
         case 0:
             print("RoseCourseViewController")
@@ -153,5 +193,4 @@ extension StudyViewController {
             break
         }
     }
-
 }

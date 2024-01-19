@@ -11,6 +11,8 @@ import SnapKit
 final class StudyVideoView: UIView {
     // цикл на 10 карточек
     private let data = Array(1...10).map { "study \($0)" }
+    // передаем в studyVC номер нажатой ячейки получаем индек при нажатии внизу функция didSelectItemAt
+    var didSelectItem: ((Int) -> Void)?
     // колекция
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -66,9 +68,9 @@ extension StudyVideoView: UICollectionViewDataSource, UICollectionViewDelegateFl
         let width = (collectionView.bounds.width - totalSpacing) / numberOfColumns
         return CGSize(width: width, height: width)
     }
-    // нажатие карточек
+    // нажатие карточек и передача индекс наверх в var didSelectItem: ((Int) -> Void)?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("study video: \(indexPath.item)")
-        // Здесь вы можете выполнить дополнительные действия при нажатии на ячейку
+        didSelectItem?(indexPath.item)
     }
 }
