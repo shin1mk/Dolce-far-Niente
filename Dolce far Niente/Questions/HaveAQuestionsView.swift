@@ -76,20 +76,66 @@ final class HaveAQuestionsView: UIView {
         instagramButton.addTarget(self, action: #selector(instagramButtonTapped), for: .touchUpInside)
     }
     
+//    // Обработчик для кнопки "телеграм"
+//    @objc private func telegramButtonTapped() {
+//        print("telegram button tapped")
+//        if let telegramURL = URL(string: "https://t.me/shinmikhail") {
+//            UIApplication.shared.open(telegramURL, options: [:], completionHandler: nil)
+//        }
+//    }
+//    // Обработчик для кнопки "инстаграм"
+//    @objc private func instagramButtonTapped() {
+//        print("instagram button tapped")
+// 
+//        if let instagramURL = URL(string: "https://www.instagram.com/dolce.far.niente.candle/") {
+//            UIApplication.shared.open(instagramURL, options: [:], completionHandler: nil)
+//        }
+//    }
     // Обработчик для кнопки "телеграм"
     @objc private func telegramButtonTapped() {
         print("telegram button tapped")
-        if let telegramURL = URL(string: "https://t.me/shinmikhail") {
-            UIApplication.shared.open(telegramURL, options: [:], completionHandler: nil)
+        
+        let alertController = UIAlertController(
+            title: "Перейти в Telegram?",
+            message: "Для связи с dolce far niente перейдите в telegram",
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let openAction = UIAlertAction(title: "Открыть", style: .default) { _ in
+            if let telegramURL = URL(string: "https://t.me/shinmikhail") {
+                UIApplication.shared.open(telegramURL, options: [:], completionHandler: nil)
+            }
         }
+        alertController.addAction(openAction)
+        
+        // Показать диалоговое окно
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     // Обработчик для кнопки "инстаграм"
     @objc private func instagramButtonTapped() {
         print("instagram button tapped")
- 
-        if let instagramURL = URL(string: "https://www.instagram.com/dolce.far.niente.candle/") {
-            UIApplication.shared.open(instagramURL, options: [:], completionHandler: nil)
+        
+        let alertController = UIAlertController(
+            title: "Перейти в Instagram?",
+            message: "Для связи с dolce far niente перейдите в instagram",
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        let openAction = UIAlertAction(title: "Открыть", style: .default) { _ in
+            if let instagramURL = URL(string: "https://www.instagram.com/dolce.far.niente.candle/") {
+                UIApplication.shared.open(instagramURL, options: [:], completionHandler: nil)
+            }
         }
+        alertController.addAction(openAction)
+        
+        // Показать диалоговое окно
+        self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }
 // расширение для уменьшения размера картинки

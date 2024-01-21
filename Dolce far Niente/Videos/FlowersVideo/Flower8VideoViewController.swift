@@ -1,18 +1,18 @@
 //
-//  Rose1VideoViewController.swift.swift
+//  Flower8VideoViewController.swift
 //  Dolce far Niente
 //
-//  Created by SHIN MIKHAIL on 20.01.2024.
+//  Created by SHIN MIKHAIL on 21.01.2024.
 //
 
 import UIKit
 import SnapKit
 
-final class Rose1VideoViewController: UIViewController {
+final class Flower8VideoViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.SFUITextBold(ofSize: 30)
-        label.text = "Rose1 video"
+        label.text = "flower8 video"
         label.textAlignment = .left
         label.textColor = .white
         return label

@@ -11,6 +11,8 @@ import SnapKit
 final class StudyVideoView: UIView {
     // цикл на 10 карточек
     private let data = Array(1...10).map { "study \($0)" }
+    // массив картинок для фона 10 карточек
+    private let imageNames = ["pic4", "pic6", "pic7", "pic4", "pic6", "pic7","pic4", "pic6", "pic7", "pic7"]
     // передаем в studyVC номер нажатой ячейки получаем индек при нажатии внизу функция didSelectItemAt
     var didSelectItem: ((Int) -> Void)?
     // колекция
@@ -54,10 +56,14 @@ extension StudyVideoView: UICollectionViewDataSource, UICollectionViewDelegateFl
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return data.count
     }
-    // содержимое карточек
+    // содержимое карточки 10
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: studyVideoCell.reuseIdentifier, for: indexPath) as! studyVideoCell
-        cell.configure(with: data[indexPath.item])
+        // Установка текста и изображения фона
+        let title = data[indexPath.item]
+        let imageName = imageNames[indexPath.item % imageNames.count]
+        cell.configure(with: title, backgroundImageName: imageName)
+        
         return cell
     }
     // размер карточек

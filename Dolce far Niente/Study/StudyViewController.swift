@@ -165,7 +165,6 @@ final class StudyViewController: UIViewController {
     private func validatePassword(_ enteredPassword: String?) {
         guard let enteredPassword = enteredPassword, enteredPassword == tutorialPassword else {
             print("Неверный пароль")
-            // Здесь вы можете вывести сообщение об ошибке или предпринять другие действия
             return
         }
 
@@ -213,19 +212,36 @@ extension StudyViewController {
     private func handleCellSelectionVideo(index: Int) {
         switch index {
         case 0:
-            print("RoseCourseViewController")
-            let rose1vc = Rose1VideoViewController()
-            navigationController?.pushViewController(rose1vc, animated: true)
+            let flower1vc = Flower1VideoViewController()
+            navigationController?.pushViewController(flower1vc, animated: true)
         case 1:
-            print("ProCourseViewController")
-            let proCourseVC = ProCourseViewController()
-            navigationController?.pushViewController(proCourseVC, animated: true)
+            let flower2vc = Flower2VideoViewController()
+            navigationController?.pushViewController(flower2vc, animated: true)
         case 2:
-            print("ExoticCourseViewController")
-            let exoticCourseVC = ExoticCourseViewController()
-            navigationController?.pushViewController(exoticCourseVC, animated: true)
+            let flower3vc = Flower3VideoViewController()
+            navigationController?.pushViewController(flower3vc, animated: true)
+        case 3:
+            let flower4vc = Flower4VideoViewController()
+            navigationController?.pushViewController(flower4vc, animated: true)
+        case 4:
+            let flower5vc = Flower5VideoViewController()
+            navigationController?.pushViewController(flower5vc, animated: true)
+        case 5:
+            let flower6vc = Flower6VideoViewController()
+            navigationController?.pushViewController(flower6vc, animated: true)        
+        case 6:
+            let flower7vc = Flower7VideoViewController()
+            navigationController?.pushViewController(flower7vc, animated: true)
+        case 7:
+            let flower8vc = Flower8VideoViewController()
+            navigationController?.pushViewController(flower8vc, animated: true)
+        case 8:
+            let flower9vc = Flower9VideoViewController()
+            navigationController?.pushViewController(flower9vc, animated: true)
+        case 9:
+            let flower10vc = Flower10VideoViewController()
+            navigationController?.pushViewController(flower10vc, animated: true)
         default:
-            // Действия для других ячеек, если необходимо
             break
         }
     }
